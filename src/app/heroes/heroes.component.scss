@@ -1,0 +1,19 @@
+ul, li {list-style: none;}
+.tab {display: flex;}
+.tab li {
+    width: 100px; height: 100px; line-height: 100px;
+    text-align: center; border: 2px solid #666; background: #eaeaea;
+    border-radius: 50%; cursor: pointer;
+}
+.tab li ~ li {margin-left: 7px;}
+.tab li:hover,
+.tab li.selected {
+    transition: all 0.2s;
+    background: #333; color: #fff;
+}
+
+.tab-box {
+    width: 330px; height: 200px; border: 1px solid #666; margin-top: 10px;
+    background-color: #eaeaea; display: none;
+}
+.tab-box.show {display: block;}

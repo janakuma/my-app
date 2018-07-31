@@ -1,0 +1,14 @@
+<section class="content-wrap">
+    <h2>My heroes</h2>
+    <ul class="tab" [@staggerTab]>
+        <li *ngFor="let hero of heroes" (click)="onSelected(hero)" [class.selected]="hero === selectedHero">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </li>
+    </ul>
+
+    <div *ngFor="let hero of heroes" class="tab-box" [class.show]="hero === selectedHero" >
+        <h3>{{hero.name}}</h3>
+        <p>{{hero.contents}}</p>
+        <figure class="thum">{{hero.thum}}</figure>
+    </div>
+</section>

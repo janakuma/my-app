@@ -1,0 +1,59 @@
+<style>
+  div.box {width: 300px; height: 100px; background: gold;}
+  ul li {width: 300px; height: 50px;  background: blue; list-style: none;}
+  button { font-size: 20px; margin-right: 10px }
+  .extend {
+    width: 300px; height: 200px;
+    background-color: violet;
+  }
+
+  ol li {
+    width: 300px; height: 50px; line-height: 50px; text-align: center;
+    margin-top: 10px; border-radius: 5px;
+    background: #666; list-style: none;
+    color: #fff; text-transform: uppercase
+  }
+
+  .select {background: red !important}
+
+</style>
+
+<section class="content-wrap">
+  <div class="box" [@photoState]="position"></div>
+
+  <ul [@listStagger]="photo.length" *ngIf="listShow">
+    <li *ngFor="let item of photo">
+      {{item}}
+    </li>
+  </ul>
+
+
+  <div class="extend" [@extend] *ngIf="listShow1"></div>
+  <div class="extend" [@extend1]="book" (click)="toggle()">{{book}}</div>
+  <div class="extend" [@extend2]="startState">EXTEND2</div>
+
+
+  <button (click)="addItem()">ADD</button>
+  <button (click)="removeItem()">REMOVE</button>
+  <button (click)="listStagger_1 = !listStagger_1">listStagger_1</button>
+  <ol [@listStagger-1]="listState.length" *ngIf="listStagger_1">
+    <li *ngFor="let item of listState" [@listStagger-2] (click)="selectVal(item)" [class.select]="item === select_item">
+      <p>
+        {{item.value}}
+      </p>
+    </li>
+  </ol>
+
+
+  <div style="position:absolute; bottom:10px; right: 0;">
+    <button (click)="changePostion('move')">move</button>
+    <button (click)="changePostion('spin')">spin</button>
+    <button (click)="changePostion('enlarge')">enlarge</button>
+    <button (click)="changePostion(null)">null</button>
+    <button (click)="listShow = !listShow">stagger</button>
+    <button (click)="listShow1 = !listShow1">listShow1</button>
+
+  </div>
+
+
+</section>
