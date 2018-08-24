@@ -8,12 +8,20 @@
   >EVENT ANIMATION : {{isEventClick}}
 </p>
 
+<p
+  class="state"
+  [@eventAnimation1]="isEventClick2"
+  *ngIf="isEventClick2"
+  >EVENT ANIMATION : {{isEventClick2}}
+</p>
+
 <p class="state" [@stateMotion] *ngIf="isEventClick1">STATE MOVE</p>
 
 <div [@showMotion]>
   <aside class="sidebox-01">
     <button (click)="eventClick()">eventClick</button>
     <button (click)="eventClick1()">eventClick1</button>
+    <button (click)="eventClick2()">eventClick2</button>
   </aside>
   <aside class="sidebox-02"></aside>
 

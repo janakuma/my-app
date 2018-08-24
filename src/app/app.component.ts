@@ -38,6 +38,7 @@ import { sequence, animateChild, trigger, state, style, animate,  transition, qu
 
 export class AppComponent implements OnInit {
   title = 'app';
+  public name = 'janakuma';
 
   constructor() { }
 

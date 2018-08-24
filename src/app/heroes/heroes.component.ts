@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { sequence, animateChild, trigger, state, style, animate, transition, query, group, stagger } from '@angular/animations';
 import { Hero } from '../hero';
@@ -46,10 +46,9 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent implements OnInit {
   heroes = HEROES;
   selectedHero: Hero;
+  public name: any;
 
-  constructor(
-    private heroService: HeroService
-  ) {
+  constructor (private heroService: HeroService) {
 
   }
 
@@ -58,7 +57,8 @@ export class HeroesComponent implements OnInit {
   }
 
   onSelected(hero: Hero) {
-    this.selectedHero = hero;
+    /// this.selectedHero = hero;
+    this.name = this.selectedHero;
   }
 
   getHeroes(): void {

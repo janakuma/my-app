@@ -19,6 +19,12 @@ import { trigger, state, style, animate, transition, query, group, stagger, anim
       transition('*<=>*', animate('1s')),
     ]),
 
+    trigger('eventAnimation1', [
+      state('true', style({ backgroundColor: 'red' })),
+      state('false', style({ backgroundColor: 'green' })),
+      transition('*<=>*', animate('1s')),
+    ]),
+
     trigger('showMotion', [
 
         transition(':enter', group([
@@ -77,6 +83,7 @@ export class MotionComponent implements OnInit {
   state: String = null;
   isEventClick: Boolean = false;
   isEventClick1: Boolean = false;
+  isEventClick2: Boolean = false;
   toggleState = 'min';
 
 
@@ -90,6 +97,10 @@ export class MotionComponent implements OnInit {
 
   eventClick1() {
     this.isEventClick1 = !this.isEventClick1;
+  }
+
+  eventClick2() {
+    this.isEventClick2 = !this.isEventClick2;
   }
 
   stateChange() {

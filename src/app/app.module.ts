@@ -12,6 +12,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeaderComponent } from './header/header.component';
 import { MotionComponent } from './motion/motion.component';
 import { SliderComponent } from './slider/slider.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { SliderComponent } from './slider/slider.component';
     HeaderComponent,
     MotionComponent,
     SliderComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
