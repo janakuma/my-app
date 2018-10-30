@@ -4,7 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>GRID - 10</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $(function() {
+            $(window).on('resize', function() {
+                var item_w = $('.item1').outerWidth();
+                $('.item1').text(item_w);
+            })
+        });
+
+    </script>
+    <title>GRID - 12</title>
 </head>
 <body>
     <div class="wrapper">
@@ -12,11 +22,10 @@
         <div class="item item2">2</div>
         <div class="item item3">3</div>
         <div class="item item4">4</div>
-        <div class="item item5">5</div>
+        <!-- <div class="item item5">5</div>
         <div class="item item6">6</div>
         <div class="item item7">7</div>
         <div class="item item8">8</div>
-        <div class="item poop">blacnk</div>
         <div class="item item9">9</div>
         <div class="item item10">10</div>
         <div class="item item11">11</div>
@@ -28,17 +37,8 @@
         <div class="item item17">17</div>
         <div class="item item18">18</div>
         <div class="item item19">19</div>
-        <div class="item item20">20</div>
-        <div class="item item21">21</div>
-        <div class="item item22">22</div>
-        <div class="item item23">23</div>
-        <div class="item item24">24</div>
-        <div class="item item25">25</div>
-        <div class="item item26">26</div>
-        <div class="item item27">27</div>
-        <div class="item item28">28</div>
-        <div class="item item29">29</div>
-        <div class="item item30">30</div>
+        <div class="item item20">20</div> -->
+
     </div>
 
 
@@ -61,35 +61,26 @@
                 사용할 때는 var(변수명)
             */
         }
-
-        /*
-            grid-row에서 span을 했을 때 셀이 늘어 나지 않는 것은 높이 값이 적용되어 있지 않기 때문이다.
-            grid-auto-rows에서 값을 지정해 준다.
-        */
-
         .wrapper {
-            box-sizing: border-box;
             display: grid;
             grid-gap: 15px;
-            grid-template-columns: repeat(5, 1fr 2fr);
-            grid-auto-rows: 1fr;
-            height: 100vh;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
             padding: 50px;
+            border: 4px solid darkcyan;
+
+            /*
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                auto-fit: 영역을 가득 채운다.(가로방향)
+                auto-fill: 영역을 정해진 사이즈로 채운다.(가로방향)
+                minmax(min, max);
+                min or max 값이 되면 엘리먼트는 줄 바꿈이 이루어진다.(이벤트 발생)
+            */
         }
         .item {
-            display: flex; justify-content: center; align-items: center;
-            border: 3px solid var(--borderColor); background-color: #333; color: #fff; font-size: 20px; text-align: center;
-            }
-        .item1 { grid-column: 3/5; }
-        .item2 { grid-column: 5/-1; }
-        .item5 { grid-column: span 2;  grid-row: span 2;}
-        .item8 { grid-row: span 2;}
-        .item15 { grid-column: 1/-1; }
-        .item18 { grid-column: span 4 / 9; }
-        .item20 { grid-row: 4 / span 3; }
-
-
-
+            box-sizing: border-box;
+            background-color: #333; color: #fff; font-size: 20px; text-align: center;
+            border: 5px solid red;
+        }
     </style>
 </body>
 </html>
